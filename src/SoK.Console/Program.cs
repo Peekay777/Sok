@@ -16,7 +16,7 @@ namespace SoK.Console
                 new Horse { Power = 15000, Mass = 500, dragCoefficient = 0.8 }
             };
             Race race = new Race(CourseLength, Interval, runners);
-            race.LaunchRace();
+            race.StartRace();
         }
     }
 }

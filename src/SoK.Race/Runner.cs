@@ -7,18 +7,20 @@ namespace SoK.Races
 {
     public class Runner
     {
+        public int Id { get; set; }
         public Horse HorseAttributes { get; set; }
-        public double Veleocity { get; set; }
+        public double Velocity { get; set; }
         public double Displacement { get; set; }
 
         public bool IsRunning { get; set; }
         public double FinishingDisplacement { get; set; }
         public double FinishingTime { get; set; }
 
-        public Runner(Horse horse)
+        public Runner(int id, Horse horse)
         {
+            Id = id;
             HorseAttributes = horse;
-            Veleocity = 0;
+            Velocity = 0;
             Displacement = 0;
             IsRunning = true;
             FinishingDisplacement = 0;
