@@ -1,29 +1,30 @@
-﻿using System;
+﻿using SoK.Races.Utils;
 using System.Collections.Generic;
-using SoK.Races.Utils;
 
 namespace SoK.Races
 {
     public class Race
     {
-        private int _courseLength;
+        private RaceInfo _raceInfo;
         private double _interval;
         private double _alapsed;
-        private List<Runner> _runners = new List<Runner>();
-        private RaceResults _results;
+        private List<Runner> _runners;
+        private RaceResult _results;
 
-        public Race(int courseLength, double interval, List<Horse> runners)
+        public Race(RaceInfo raceInfo, double interval)
         {
-            _courseLength = courseLength;
+            _raceInfo = raceInfo;
             _interval = interval;
+            _results = new RaceResult(_raceInfo.Id, interval);
+            _runners = new List<Runner>();
 
-            for (int i = 0; i < runners.Count; i++)
+            foreach (Horse horse in _raceInfo.Runners)
             {
-                _runners.Add(new Runner(i, runners[i]));
+                _runners.Add(new Runner(horse.Id, horse));
             }
         }
 
-        public void StartRace()
+        public RaceResult RunRace()
         {
             int completed = 0;
             _alapsed = 0;
@@ -31,11 +32,13 @@ namespace SoK.Races
             do
             {
                 _alapsed += _interval;
+                _results.NewStage();
                 completed = PerformIntervalForRunners(completed);
             } while (completed < _runners.Count);
 
+            _results.Runners = _runners;
 
-            // find winner
+            return _results;
         }
 
         private int PerformIntervalForRunners(int completed)
@@ -48,9 +51,9 @@ namespace SoK.Races
                 runner.Velocity += Formula.Velocity(acc, _interval);
                 runner.Displacement += Formula.Displacement(runner.Velocity, _interval, acc);
 
+                _results.Add(runner.Id, runner.Displacement);
 
-
-                if (runner.Displacement >= _courseLength && runner.IsRunning)
+                if (runner.Displacement >= _raceInfo.CourseLength && runner.IsRunning)
                 {
                     runner.IsRunning = false;
                     runner.FinishingDisplacement = runner.Displacement;

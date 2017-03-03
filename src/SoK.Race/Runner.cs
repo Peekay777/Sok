@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SoK.Races
 {
@@ -25,6 +23,36 @@ namespace SoK.Races
             IsRunning = true;
             FinishingDisplacement = 0;
             FinishingTime = 0;
+        }
+    }
+
+    public class TimeDisplacementComparer : IComparer<Runner>
+    {
+        public int Compare(Runner x, Runner y)
+        {
+            if (x.FinishingTime > y.FinishingTime)
+            {
+                return 1;
+            }
+            else if (x.FinishingTime < y.FinishingTime)
+            {
+                return -1;
+            }
+            else    // finishing times are equal
+            {
+                if (x.FinishingDisplacement > y.FinishingDisplacement)
+                {
+                    return 1;
+                }
+                else if (x.FinishingDisplacement < y.FinishingDisplacement)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
         }
     }
 }
