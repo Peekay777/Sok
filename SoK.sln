@@ -1,22 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3438C63F-7BBF-4EDA-81CF-04F3116D145B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D843FBB9-D4E9-4469-A83D-6A279471C8A8}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SoK.Console", "src\SoK.Console\SoK.Console.xproj", "{6CD5DC60-561B-43A4-B8B4-43FBCDE0A02B}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SoK.Races", "src\SoK.Race\SoK.Races.xproj", "{3518E083-BDF4-4BC4-A694-5A975E8696E5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1FD2BA72-BA81-42E7-BE9A-F2CCFCBA637C}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SoK.Test", "test\SoK.Test\SoK.Test.xproj", "{E2B9F748-3012-4A4D-839E-79382D50B30A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoK.Console", "src\SoK.Console\SoK.Console.csproj", "{6CD5DC60-561B-43A4-B8B4-43FBCDE0A02B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoK.Race", "src\SoK.Race\SoK.Race.csproj", "{3518E083-BDF4-4BC4-A694-5A975E8696E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoK.Test", "test\SoK.Test\SoK.Test.csproj", "{E2B9F748-3012-4A4D-839E-79382D50B30A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

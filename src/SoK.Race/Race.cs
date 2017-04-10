@@ -26,22 +26,22 @@ namespace SoK.Races
 
         public RaceResult RunRace()
         {
-            int completed = 0;
+            int runersCompleted = 0;
             _alapsed = 0;
 
             do
             {
                 _alapsed += _interval;
                 _results.NewStage();
-                completed = PerformIntervalForRunners(completed);
-            } while (completed < _runners.Count);
+                runersCompleted = PerformIntervalForRunners(runersCompleted);
+            } while (runersCompleted < _runners.Count);
 
             _results.Runners = _runners;
 
             return _results;
         }
 
-        private int PerformIntervalForRunners(int completed)
+        private int PerformIntervalForRunners(int runersCompleted)
         {
             foreach (Runner runner in _runners)
             {
@@ -58,11 +58,11 @@ namespace SoK.Races
                     runner.IsRunning = false;
                     runner.FinishingDisplacement = runner.Displacement;
                     runner.FinishingTime = _alapsed;
-                    completed++;
+                    runersCompleted++;
                 }
             }
 
-            return completed;
+            return runersCompleted;
         }
     }
 }
